@@ -116,7 +116,9 @@ var webpackConfig = {
       },
       {
         test: /\.(js|jsx)$/,
-        exclude: [/node_modules/, /@babel(?:\/|\\{1,2})runtime/],
+        exclude: filename => {
+          return /node_modules/.test(filename) && !/react-leaflet/.test(filename)
+        },
         use: [
           {
             loader: "babel-loader",
@@ -125,6 +127,8 @@ var webpackConfig = {
               plugins: [
                 "@babel/plugin-proposal-class-properties",
                 "@babel/plugin-transform-runtime",
+                "@babel/plugin-proposal-optional-chaining",
+                "@babel/plugin-proposal-nullish-coalescing-operator",
               ],
             },
           },
