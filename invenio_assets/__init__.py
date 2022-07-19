@@ -108,10 +108,11 @@ Additionally if we have some static files we should collect them:
 
 from .ext import InvenioAssets
 from .proxies import current_assets
-from .version import __version__
+
+__version__ = "1.2.7"
 
 __all__ = (
-    '__version__',
-    'InvenioAssets',
-    'current_assets',
+    "__version__",
+    "InvenioAssets",
+    "current_assets",
 )
